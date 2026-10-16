@@ -1,4 +1,4 @@
-![alt text](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/08-dark-mode.png?raw=true)
+![alt text](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/03-analyzer.png?raw=true)
 # DSP 4x4 Editor
 
 An unofficial editor for the **t.racks DSP 4x4 Mini** loudspeaker processor, by **Maskov**.
