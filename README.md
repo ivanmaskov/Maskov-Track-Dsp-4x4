@@ -1,4 +1,4 @@
-![alt text](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/03-analyzer.png?raw=true)
+![alt text](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/03-analyzer.png?raw=true) 
 # DSP 4x4 Editor
 
 An unofficial editor for the **t.racks DSP 4x4 Mini** loudspeaker processor, by **Maskov**.
@@ -8,15 +8,58 @@ It replaces the original Windows-only t.racks editor with one that runs on **Lin
 network can use as a remote. It is written in Rust with no external libraries, and the
 editor opens in your web browser.
 
+> **Tested and working** on a real t.racks DSP 4x4 Mini.
+>
 > Not affiliated with or endorsed by Thomann or t.racks. The protocol was worked out
-> independently and has been tested against a simulated DSP, not yet on real hardware.
-> The first time, mute the outputs or turn the amplifiers down.
+> independently.
+
+![DSP 4x4 Editor](docs/screenshots/01-editor.png)
+
+### New in 0.9.4
+
+- **Full-screen EQ** on the phone remote: the ⤢ button in the EQ card shows the graph over the
+  whole screen, with band buttons and the selected band's values. Turn the phone sideways for a
+  wide view; Back or ✕ closes it.
+
+### Android app 1.2
+
+- Two-finger Q in the app: tap a point to select its band, then pinch on the EQ graph with two
+  fingers (spread for a wider band, pinch for a narrower one). Holding a point and pinching still
+  works too.
+
+### New in 0.9.3 (Android app 1.1)
+
+- Android app: the two-finger Q gesture no longer depends on the editor version or on the page
+  noticing the held point; the app shows the Q value in a bubble while you pinch.
+- A long press on the EQ graph no longer opens a menu or cancels the held point (phones).
+
+### New in 0.9.2
+
+- **Android app** (DSP 4x4 Remote): finds the computer on the Wi-Fi by itself and shows the phone
+  remote, with the two-finger Q gesture handled by the app instead of the browser, no certificate
+  warning, and the microphone and file picker ready. See [Android app](#android-app).
+
+### New in 0.9.1
+
+- Two-finger Q: the second finger now works anywhere on the screen, not only on the graph,
+  and the page no longer scrolls or zooms while an EQ point is held.
+- After installing a new version, a running editor (including the background one) restarts
+  into it by itself, so phones get the new remote straight away.
+
+### New in 0.9.0
+
+- **Analyzer on the phone remote:** live spectrum, peak readout and scrolling spectrogram from
+  the phone's own microphone, also drawn behind each output's EQ curve.
+- **Two-finger Q:** hold an EQ point and move a second finger to widen or narrow the band, on
+  the phone remote and on touch-screen computers.
+- Phones are sent to the secure (https) address, which the microphone needs.
 
 ---
 
 ## Contents
 
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Install](#install)
 - [First connection](#first-connection)
 - [Using the editor](#using-the-editor)
@@ -49,34 +92,75 @@ editor opens in your web browser.
 | Feature | What it does |
 |---|---|
 | **Import REW** | Loads an EQ correction from Room EQ Wizard into the selected output (up to 7 filters) |
+| **Two-finger Q** | On a phone or touch screen, hold an EQ point and move a second finger anywhere on the screen to change its Q: spread for a wider band, pinch for a narrower one |
 | **EQ reset** | Double-click or double-tap a band to reset it; double-click empty space to reset the whole EQ |
 | **Bypass EQ** | Switches all 7 bands of an output off and on, for quick A/B listening |
-| **Analyzer** | Real-time spectrum over the EQ curve and a scrolling spectrogram, from your computer's microphone or audio input |
+| **Analyzer** | Real-time spectrum over the EQ curve and a scrolling spectrogram, from your computer's microphone or audio input, or from the phone's own microphone on the phone remote |
 | **Test signal** | Pink noise, white noise or a sine tone (20 Hz–20 kHz) from the DSP's own generator, with a master volume |
 | **Compare A–E** | Five complete sets of settings; switch with a click or keys 1–5 and only the differences are sent |
 | **Preset library** | Save and load named presets inside the editor, plus export/import as files |
 | **Level meters** | Peak hold and clip lights on all 8 channels |
 | **Reads the DSP** | Loads the settings that are in the DSP when you connect |
-| **Phone remote** | Every setting except the USB connection, from a phone on the same Wi-Fi (Linux) |
+| **Phone remote** | Every setting except the USB connection, from a phone on the same Wi-Fi, with its own analyzer using the phone's microphone (Linux) |
 | **Autostart** | Starts with the computer and reconnects to the DSP by itself |
 | **Command line** | Scriptable control of every setting (Linux) |
 
 ---
 
+## Screenshots
+
+**EQ with an imported Room EQ Wizard correction** (Out1, after a 100 Hz Linkwitz-Riley high-pass)
+
+![REW import into the EQ](docs/screenshots/02-rew-import-eq.png)
+
+**Analyzer:** live spectrum over the EQ curve, with a scrolling spectrogram
+
+![Analyzer](docs/screenshots/03-analyzer.png)
+
+**Crossover, compressor/limiter and delay** (subwoofer output)
+
+![Crossover, compressor and delay](docs/screenshots/04-crossover-compressor-delay.png)
+
+**Test signal** from the DSP's own generator, with master volume
+
+![Test signal](docs/screenshots/05-test-signal.png)
+
+**Phone remote:** outputs with meters, the touch EQ, and the test signal
+
+![Phone remote](docs/screenshots/phone-remote.png)
+
+**Phone analyzer and two-finger Q:** spectrum and spectrogram from the phone's microphone, and
+the Q of a held EQ point changed with a second finger
+
+![Phone analyzer and two-finger Q](docs/screenshots/phone-analyzer.png)
+
+**Full-screen EQ** on the phone, turned sideways
+
+![Full-screen EQ](docs/screenshots/14-phone-eq-fullscreen.png)
+
+| Presets | Pairing a phone | Dark mode |
+|---|---|---|
+| ![Presets](docs/screenshots/06-presets.png) | ![Network and QR code](docs/screenshots/07-network-qr.png) | ![Dark mode](docs/screenshots/08-dark-mode.png) |
+
+---
+
 ## Install
 
-### Linux (Debian 12+, Ubuntu 22.04+, amd64)
+### Linux (Debian 12+, Ubuntu 22.04+, Linux Mint 21+, amd64)
 
 ```
-sudo apt install ./dsp4x4-editor_0.8.0-1_amd64.deb
+sudo apt install ./dsp4x4-editor_0.9.4-1_amd64.deb
 ```
 
 If the DSP was already plugged in, unplug it and plug it back in so the USB permission rule
 applies. Start **DSP 4x4 Editor** from the applications menu, or run `dsp4x4-editor`.
 
+For the analyzer on the phone remote, the computer also needs OpenSSL (`sudo apt install
+openssl`; it's usually already there). On Linux Mint you can also double-click the `.deb`.
+
 ### Windows 10 / 11
 
-1. Unzip `dsp4x4-editor-0.8.0-windows.zip` somewhere permanent, such as Documents.
+1. Unzip `dsp4x4-editor-0.9.4-windows.zip` somewhere permanent, such as Documents.
 2. Double-click **DSP 4x4 Editor.cmd**. It opens the editor in Microsoft Edge (built in) or
    Google Chrome.
 
@@ -103,6 +187,8 @@ The **ID** box is the DSP's device ID; leave it at 1 unless you changed it on th
 double-click it for 0 dB. Click a strip to show its settings below.
 
 **EQ.** Drag a numbered point to change frequency and gain, and scroll over it to change Q.
+On a touch screen, hold the point with one finger and move a second finger to change Q:
+spread the fingers apart for a wider band, bring them together for a narrower one.
 You can also type exact values in the table. Double-click a point to reset that band (0 dB,
 Q 1.4, its starting frequency); double-click empty space to reset the whole EQ of that output.
 
@@ -150,19 +236,60 @@ they're kept in the browser, so use **Export to file** to back them up.
 
 1. Click **Network** and tick *Allow phones and other computers on this network*. The editor
    restarts and shows a QR code and a 6-digit PIN.
-2. Scan the QR code with the phone's camera. The remote opens and signs in.
+2. Scan the QR code with the phone's camera. The remote opens and signs in. The address is
+   secure (https), and the first time the phone warns that the connection isn't private,
+   because the computer made its own certificate: in Chrome on Android tap **Advanced**, then
+   **Proceed**.
 3. In the phone browser's menu, choose **Add to Home screen** to keep it as an app.
 
 The remote does everything except connect to the DSP over USB: levels, mute, polarity, gates,
-routing, crossovers, the EQ (with touch curve, double-tap reset and REW import), compressor,
+routing, crossovers, the EQ (with touch curve, two-finger Q, double-tap reset and REW import), compressor,
 delay, compare A–E, presets, Send all, the test signal and meters. Changes appear on every
 device within about a second.
+
+### Android app
+
+`dsp4x4-remote-1.2.apk` is a small Android app (Android 7.0 or newer) for the same remote:
+
+1. Copy the APK to the phone and open it. Android asks to allow installing apps from that source
+   (the browser or Files app); allow it once.
+2. Turn on network access in the editor on the computer (above).
+3. Open **DSP 4x4 Remote**. It lists the computers running the editor on the Wi-Fi; tap yours
+   and enter the PIN the first time. You can also type the address, such as `192.168.1.20:8484`.
+
+**Q with two fingers:** tap a point on the EQ graph to select its band, then put two fingers on
+the graph and spread them for a wider band (lower Q) or pinch them for a narrower one (higher Q).
+A bubble shows the Q while you pinch. You can also hold a point and add a second finger. The app
+measures the fingers itself, so this works whatever the phone's browser engine does with
+multi-touch. The computer's own certificate is trusted on first
+use (no warning page), and the app warns if it changes. **⋯ → Choose another computer** switches
+computers. Source and build instructions are in [android/](android/README.md).
+
+**Full-screen EQ.** The ⤢ button at the top of an output's EQ card shows the graph over the
+whole screen, with band buttons and a line with the selected band's type, frequency, gain and
+Q. Everything works there as in the card (drag, select, double tap, two-finger Q, the analyzer
+spectrum). Turn the phone sideways for a wide view. Back or ✕ returns to the output.
+
+**Analyzer on the phone.** The **Analyzer** tab shows a live spectrum and a scrolling
+spectrogram from the phone's own microphone (or a USB measurement mic plugged into the phone).
+Tap **Start microphone** and allow it. Tap the spectrum to read the level at a frequency;
+the amber mark and the *Peak* readout follow the loudest tone. **Freeze** holds the picture,
+*Top of scale* and *Scroll speed* adjust the display, and **Test signal…** starts pink noise
+from the DSP. While the microphone is on, the EQ screen of each output also shows the
+spectrum behind the curve (the **Mic spectrum** button switches it on and off there too).
+The screen stays on while the microphone is in use.
+
+Phone browsers only allow the microphone on secure (https) pages, so when OpenSSL is
+installed (`openssl` and `libssl3`) the QR code opens `https://…:8484/remote`. The
+certificate is made by the computer itself, so the first time the phone warns that the
+connection isn't private: in Chrome on Android tap **Advanced**, then **Proceed**. If the
+remote is opened over plain http, the Analyzer tab offers a button to open the secure page.
 
 Other computers can open `http://<computer>:8484/` for the full editor. The editor is also
 advertised over mDNS (needs `avahi-utils`) and answers a UDP discovery broadcast on port 8485.
 **Make a new PIN** signs every device out.
 
-The connection is plain HTTP, so only turn this on for networks you trust. If a firewall is
+The editor also answers plain HTTP, so only turn this on for networks you trust. If a firewall is
 on, allow TCP port 8484 (and UDP 8485 for discovery).
 
 The Windows version can't offer network access, because a browser page can't accept
@@ -221,8 +348,8 @@ Channels are `InA`–`InD` and `Out1`–`Out4`. Run `dsp4x4-editor --help` for t
 - Over RS-232 only level and mute can be changed. Use USB for everything else.
 - The test signal can't be read back either. The editor switches it off when it connects.
 - The preset library lives in the editor, not in the DSP's own preset memory.
-- The analyzer isn't on the phone remote, because browsers only allow the microphone on
-  secure (https) pages.
+- The phone analyzer needs the https page, which needs OpenSSL on the Linux computer.
+  Phone microphones aren't calibrated, so treat the bass and top treble as approximate.
 - Bessel filters are drawn with a Butterworth shape; the DSP processes them correctly.
 - This editor doesn't change the DSP's firmware.
 
@@ -237,6 +364,7 @@ cargo test
 cargo build --release
 ./packaging/build-deb.sh        # dist/dsp4x4-editor_<version>-1_<arch>.deb
 ./packaging/build-windows.sh    # dist/dsp4x4-editor-<version>-windows.zip
+ANDROID_HOME=~/Android/Sdk ./packaging/build-android.sh   # dist/dsp4x4-remote-<version>.apk
 ```
 
 The browser tests in `tests/` use a DSP simulator and Playwright; see
@@ -251,7 +379,9 @@ a DSP command. [PROTOCOL.md](PROTOCOL.md) documents the DSP's USB and RS-232 pro
 src/            Rust program: protocol, USB/serial links, web server, CLI, presets, network
 assets/         Editor pages: ui.html (computer), remote.html (phone), core.js (shared code)
 packaging/      Build scripts, udev rule, desktop entry, systemd user service
-tests/          DSP simulator, browser tests, example REW file
+android/        Android app (DSP 4x4 Remote): Java sources, icon, Gradle-free build
+tests/          DSP simulator, browser tests, example REW file, screenshot script
+docs/           Screenshots for this README
 PROTOCOL.md     The DSP's protocol
 DEVELOPING.md   Notes for changing the code
 LICENSE         MIT
