@@ -35,38 +35,6 @@ editor opens in your web browser.
   whole screen, with band buttons and the selected band's values. Turn the phone sideways for a
   wide view; Back or ✕ closes it.
 
-### Android app 1.2
-
-- Two-finger Q in the app: tap a point to select its band, then pinch on the EQ graph with two
-  fingers (spread for a wider band, pinch for a narrower one). Holding a point and pinching still
-  works too.
-
-### New in 0.9.3 (Android app 1.1)
-
-- Android app: the two-finger Q gesture no longer depends on the editor version or on the page
-  noticing the held point; the app shows the Q value in a bubble while you pinch.
-- A long press on the EQ graph no longer opens a menu or cancels the held point (phones).
-
-### New in 0.9.2
-
-- **Android app** (DSP 4x4 Remote): finds the computer on the Wi-Fi by itself and shows the phone
-  remote, with the two-finger Q gesture handled by the app instead of the browser, no certificate
-  warning, and the microphone and file picker ready. See [Android app](#android-app).
-
-### New in 0.9.1
-
-- Two-finger Q: the second finger now works anywhere on the screen, not only on the graph,
-  and the page no longer scrolls or zooms while an EQ point is held.
-- After installing a new version, a running editor (including the background one) restarts
-  into it by itself, so phones get the new remote straight away.
-
-### New in 0.9.0
-
-- **Analyzer on the phone remote:** live spectrum, peak readout and scrolling spectrogram from
-  the phone's own microphone, also drawn behind each output's EQ curve.
-- **Two-finger Q:** hold an EQ point and move a second finger to widen or narrow the band, on
-  the phone remote and on touch-screen computers.
-- Phones are sent to the secure (https) address, which the microphone needs.
 
 ---
 
