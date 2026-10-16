@@ -1,4 +1,3 @@
-![alt text](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/03-analyzer.png?raw=true) 
 # DSP 4x4 Editor
 
 An unofficial editor for the **t.racks DSP 4x4 Mini** loudspeaker processor, by **Maskov**.
@@ -13,7 +12,7 @@ editor opens in your web browser.
 > Not affiliated with or endorsed by Thomann or t.racks. The protocol was worked out
 > independently.
 
-![DSP 4x4 Editor](docs/screenshots/01-editor.png)
+![DSP 4x4 Editor](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/03-analyzer.png?raw=true)
 
 ### Android app 1.3
 
