@@ -15,6 +15,21 @@ editor opens in your web browser.
 
 ![DSP 4x4 Editor](docs/screenshots/01-editor.png)
 
+### Android app 1.3
+
+- **Demo mode:** *Try the demo* on the app's first screen opens the full remote with an example
+  setup, without a computer or a DSP, so anyone can see and try every feature. Nothing is sent
+  anywhere; the microphone analyzer works in the demo too.
+
+### New in 0.9.5
+
+- **Type any value:** levels, crossovers, compressor, noise gate, EQ bands and delay. Tap or
+  click the number, type it and press Enter (`80`, `2.5k`, `-6`, `1.2 s` all work).
+- **Channel names:** give InA–InD and Out1–Out4 your own names (up to 16 characters). They show
+  everywhere, on every device, and are kept in presets and Compare slots.
+- **Quick crossover frequencies:** 80, 100 and 120 Hz buttons on the high-pass and low-pass
+  (the DSP's nearest steps: 80.6, 99.2 and 119.4 Hz).
+
 ### New in 0.9.4
 
 - **Full-screen EQ** on the phone remote: the ⤢ button in the EQ card shows the graph over the
@@ -93,6 +108,9 @@ editor opens in your web browser.
 |---|---|
 | **Import REW** | Loads an EQ correction from Room EQ Wizard into the selected output (up to 7 filters) |
 | **Two-finger Q** | On a phone or touch screen, hold an EQ point and move a second finger anywhere on the screen to change its Q: spread for a wider band, pinch for a narrower one |
+| **Type any value** | Tap or click a number and type it: levels, crossovers, compressor, gate, EQ, delay |
+| **Channel names** | Your own names for InA–InD and Out1–Out4, shown everywhere and kept in presets |
+| **Quick crossovers** | 80 / 100 / 120 Hz buttons on the high-pass and low-pass |
 | **EQ reset** | Double-click or double-tap a band to reset it; double-click empty space to reset the whole EQ |
 | **Bypass EQ** | Switches all 7 bands of an output off and on, for quick A/B listening |
 | **Analyzer** | Real-time spectrum over the EQ curve and a scrolling spectrogram, from your computer's microphone or audio input, or from the phone's own microphone on the phone remote |
@@ -134,6 +152,14 @@ the Q of a held EQ point changed with a second finger
 
 ![Phone analyzer and two-finger Q](docs/screenshots/phone-analyzer.png)
 
+**Android app:** finding the computer, outputs with meters, changing Q with two fingers (the
+amber bubble), the full-screen EQ and the analyzer
+
+![Android app](docs/screenshots/android-app.png)
+
+*Rendered at phone size from the remote page the app shows; the first screen is drawn from the
+app's layout. Regenerate with `tests/app_shots.py`.*
+
 **Full-screen EQ** on the phone, turned sideways
 
 ![Full-screen EQ](docs/screenshots/14-phone-eq-fullscreen.png)
@@ -149,7 +175,7 @@ the Q of a held EQ point changed with a second finger
 ### Linux (Debian 12+, Ubuntu 22.04+, Linux Mint 21+, amd64)
 
 ```
-sudo apt install ./dsp4x4-editor_0.9.4-1_amd64.deb
+sudo apt install ./dsp4x4-editor_0.9.5-1_amd64.deb
 ```
 
 If the DSP was already plugged in, unplug it and plug it back in so the USB permission rule
@@ -160,7 +186,7 @@ openssl`; it's usually already there). On Linux Mint you can also double-click t
 
 ### Windows 10 / 11
 
-1. Unzip `dsp4x4-editor-0.9.4-windows.zip` somewhere permanent, such as Documents.
+1. Unzip `dsp4x4-editor-0.9.5-windows.zip` somewhere permanent, such as Documents.
 2. Double-click **DSP 4x4 Editor.cmd**. It opens the editor in Microsoft Edge (built in) or
    Google Chrome.
 
@@ -184,7 +210,26 @@ The **ID** box is the DSP's device ID; leave it at 1 unless you changed it on th
 ## Using the editor
 
 **Mixer.** The top row has the eight channel strips (InA–InD, Out1–Out4). Drag a fader, or
-double-click it for 0 dB. Click a strip to show its settings below.
+double-click it for 0 dB, or click the dB box and type a level. Click a strip to show its
+settings below.
+
+**Typing values.** Every number next to a slider is also a field: click it (tap on a phone),
+type the value and press Enter. Units are optional; frequencies accept `80`, `2.5k` or
+`2,5 kHz`, times accept `250` or `1.2 s`, and the gate threshold accepts `off`. Values outside
+what the DSP allows are set to the nearest possible value with a message, and frequencies and
+Q snap to the DSP's steps (for example 85 Hz becomes 84.4 Hz).
+
+**Channel names.** Select a channel and type a name in the *Name* field next to its heading
+(on the phone: *Name and level* at the top of the channel). The name replaces InA–InD or
+Out1–Out4 on the strips, in routing and in titles, with the original name shown small
+underneath. Names are part of the settings: they're shared with every device and kept in
+presets, Compare slots and exported files. When the editor reads the DSP, it also picks up
+names stored in the DSP by the original t.racks editor.
+
+**Crossovers.** Besides the slider and typed frequency, the high-pass and low-pass have quick
+buttons for **80, 100 and 120 Hz**. The DSP works in 1/30-octave steps, so these set its
+nearest steps, 80.6, 99.2 and 119.4 Hz. If the slope was *Bypass*, a quick button also sets it
+to Linkwitz-Riley 24 dB so the filter is heard.
 
 **EQ.** Drag a numbered point to change frequency and gain, and scroll over it to change Q.
 On a touch screen, hold the point with one finger and move a second finger to change Q:
@@ -249,13 +294,19 @@ device within about a second.
 
 ### Android app
 
-`dsp4x4-remote-1.2.apk` is a small Android app (Android 7.0 or newer) for the same remote:
+`dsp4x4-remote-1.3.apk` is a small Android app (Android 7.0 or newer) for the same remote:
 
 1. Copy the APK to the phone and open it. Android asks to allow installing apps from that source
    (the browser or Files app); allow it once.
 2. Turn on network access in the editor on the computer (above).
 3. Open **DSP 4x4 Remote**. It lists the computers running the editor on the Wi-Fi; tap yours
    and enter the PIN the first time. You can also type the address, such as `192.168.1.20:8484`.
+
+**Demo mode:** without a computer or DSP, tap **Try the demo** on the first screen. The full
+remote opens with an example setup (named channels, crossovers, EQ, compressors, moving meters)
+and every feature can be tried, including presets, Compare A–E, the test signal and the
+microphone analyzer. Nothing leaves the phone. **⋯ → Leave the demo** or Back returns to the
+first screen.
 
 **Q with two fingers:** tap a point on the EQ graph to select its band, then put two fingers on
 the graph and spread them for a wider band (lower Q) or pinch them for a narrower one (higher Q).
@@ -348,6 +399,8 @@ Channels are `InA`–`InD` and `Out1`–`Out4`. Run `dsp4x4-editor --help` for t
 - Over RS-232 only level and mute can be changed. Use USB for everything else.
 - The test signal can't be read back either. The editor switches it off when it connects.
 - The preset library lives in the editor, not in the DSP's own preset memory.
+- Channel names are kept by the editor. They aren't written into the DSP, because the DSP's
+  command for changing names hasn't been decoded yet; names the DSP already has are read.
 - The phone analyzer needs the https page, which needs OpenSSL on the Linux computer.
   Phone microphones aren't calibrated, so treat the bass and top treble as approximate.
 - Bessel filters are drawn with a Butterworth shape; the DSP processes them correctly.
