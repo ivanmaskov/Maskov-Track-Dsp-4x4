@@ -129,44 +129,44 @@ editor opens in your web browser.
 
 **EQ with an imported Room EQ Wizard correction** (Out1, after a 100 Hz Linkwitz-Riley high-pass)
 
-![REW import into the EQ](docs/screenshots/02-rew-import-eq.png)
+![REW import into the EQ](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/02-rew-import-eq.png?raw=true)
 
 **Analyzer:** live spectrum over the EQ curve, with a scrolling spectrogram
 
-![Analyzer](docs/screenshots/03-analyzer.png)
+![Analyzer](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/03-analyzer.png?raw=true)
 
 **Crossover, compressor/limiter and delay** (subwoofer output)
 
-![Crossover, compressor and delay](docs/screenshots/04-crossover-compressor-delay.png)
+![Crossover, compressor and delay](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/04-crossover-compressor-delay.png?raw=true)
 
 **Test signal** from the DSP's own generator, with master volume
 
-![Test signal](docs/screenshots/05-test-signal.png)
+![Test signal](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/05-test-signal.png?raw=true)
 
 **Phone remote:** outputs with meters, the touch EQ, and the test signal
 
-![Phone remote](docs/screenshots/phone-remote.png)
+![Phone remote](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/phone-remote.png?raw=true)
 
 **Phone analyzer and two-finger Q:** spectrum and spectrogram from the phone's microphone, and
 the Q of a held EQ point changed with a second finger
 
-![Phone analyzer and two-finger Q](docs/screenshots/phone-analyzer.png)
+![Phone analyzer and two-finger Q](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/phone-analyzer.png?raw=true)
 
 **Android app:** finding the computer, outputs with meters, changing Q with two fingers (the
 amber bubble), the full-screen EQ and the analyzer
 
-![Android app](docs/screenshots/android-app.png)
+![Android app](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/android-app.png?raw=true)
 
 *Rendered at phone size from the remote page the app shows; the first screen is drawn from the
 app's layout. Regenerate with `tests/app_shots.py`.*
 
 **Full-screen EQ** on the phone, turned sideways
 
-![Full-screen EQ](docs/screenshots/14-phone-eq-fullscreen.png)
+![Full-screen EQ](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/app-6-eq-fullscreen-landscape.png?raw=true)
 
 | Presets | Pairing a phone | Dark mode |
 |---|---|---|
-| ![Presets](docs/screenshots/06-presets.png) | ![Network and QR code](docs/screenshots/07-network-qr.png) | ![Dark mode](docs/screenshots/08-dark-mode.png) |
+| ![Presets](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/06-presets.png?raw=true) | ![Network and QR code](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/07-network-qr.png?raw=true) | ![Dark mode](https://github.com/ivanmaskov/Maskov-Track-Dsp-4x4/blob/main/08-dark-mode.png?raw=true) |
 
 ---
 
